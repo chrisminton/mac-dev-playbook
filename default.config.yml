@@ -32,6 +32,7 @@ homebrew_installed_packages:
   - coreutils
   - cowsay
   - direnv
+  - dive
   - git
   - git-crypt
   - git-duet
@@ -75,6 +76,7 @@ homebrew_taps:
   - cloudfoundry/tap
   - git-duet/tap
   - starkandwayne/cf
+  - wagoodman/dive
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:

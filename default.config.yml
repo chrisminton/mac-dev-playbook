@@ -63,6 +63,7 @@ homebrew_installed_packages:
   - ssh-copy-id
   - terraform
   - terraform_landscape
+  - tflint
   - tmux
   - wget
   - wireshark
@@ -77,6 +78,7 @@ homebrew_taps:
   - git-duet/tap
   - starkandwayne/cf
   - wagoodman/dive
+  - wata727/tflint
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:

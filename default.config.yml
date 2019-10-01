@@ -142,7 +142,7 @@ pip_packages:
     executable: /usr/local/bin/pip3
 
 # Chef
-chefdk_version: 2.5.3
+chefdk_version: 3.11.3
 
 # vim setup
 vim_plugin_dir: ~/.vim/autoload

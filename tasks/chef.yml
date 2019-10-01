@@ -54,7 +54,3 @@
 - name: check rubygems-update version
   shell: chef gem list | grep rubygems-update
   register: rubygems_update
-
-- name: fix system gem for ChefDK 2.5.3
-  shell: chef exec gem update --system 2.7.5
-  when: get_chefdk is changed or get_chefdk_older is changed and not '"2.7.5" in rubygems_update.stdout'

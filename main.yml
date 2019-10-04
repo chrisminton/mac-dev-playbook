@@ -32,6 +32,7 @@
       tags: ['terminal']
 
     - include: tasks/chef.yml
+      when: configure_chef
       tags: ['chef']
 
     - include: tasks/vim.yml

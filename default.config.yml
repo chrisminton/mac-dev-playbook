@@ -4,16 +4,17 @@ mount_path: /Volumes
 
 # set to yes to run certain tasks
 configure_aws: yes
+configure_chef: yes
 configure_dotfiles: no
 configure_sudoers: no
 configure_terminal: yes
-configure_osx: no
+configure_osx: yes
 configure_vim: yes
 configure_vscode: yes
 
 dotfiles_repo: "git@github.com:chrisminton/dotfiles.git"
 dotfiles_repo_accept_hostkey: yes
-dotfiles_repo_local_destination: ~/Development/GitHub/dotfiles
+dotfiles_repo_local_destination: ~/personal/dotfiles
 dotfiles_files:
   - .gitignore
   - .config/powerline
@@ -25,6 +26,7 @@ dotfiles_files:
 homebrew_installed_packages:
   - autoconf
   - awscli
+  - aws-shell
   - bash
   - bash-completion
   - bosh-cli # cloud foundry cli tools
@@ -76,7 +78,6 @@ homebrew_installed_packages:
 
 homebrew_taps:
   - homebrew/core
-  - caskroom/cask
   - cloudfoundry/tap
   - git-duet/tap
   - starkandwayne/cf
@@ -89,7 +90,6 @@ homebrew_cask_apps:
   - firefox
   - google-chrome
   - gpg-suite
-  - gpgtools
   - handbrake
   - iterm2
   - keybase
@@ -151,14 +151,16 @@ vim_plugin_dir: ~/.vim/autoload
 vscode_util: /usr/local/bin/code
 vscode_extensions:
   - bibhasdn.unique-lines
+  - chef-software.chef
   - davidanson.vscode-markdownlint
   - eriklynd.json-tools
   - jmmeessen.jenkins-declarative-support
+  - lostintangent.vsls-pomodoro
   - mauve.terraform
+  - ms-azuretools.vscode-docker
   - ms-kubernetes-tools.vscode-kubernetes-tools
   - ms-python.python
-  - pendrica.chef
-  - PeterJausovec.vscode-docker
+  - ms-vsliveshare.vsliveshare-pack
   - rebornix.ruby
   - redhat.vscode-yaml
   - timonwong.shellcheck

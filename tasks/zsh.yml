@@ -5,12 +5,12 @@
   register: omz_bound
 
 - name: Download oh-my-zsh
-  git: repo=git://github.com/robbyrussell/oh-my-zsh.git
+  git: repo=git@github.com:robbyrussell/oh-my-zsh.git
        dest=~/.oh-my-zsh accept_hostkey=true
   when: omz_bound is failed
 
 - name: Install zsh-users plugins
-  git: repo=git://github.com/zsh-users/{{ item }}.git
+  git: repo=git@github.com:zsh-users/{{ item }}.git
        dest=~/.oh-my-zsh/custom/plugins/{{ item }}
        accept_hostkey=true
   when: omz_bound is failed
@@ -20,4 +20,16 @@
 
 - name: change shell
   command: chsh -s /bin/zsh
-  when: omz_bound is failed  
+  when: omz_bound is failed
+
+- name: Download Powerline fonts
+  git: repo=git@github.com:powerline/fonts.git
+       dest=~/fonts
+       accept_hostkey=true
+       depth=1
+  when: omz_bound is failed
+
+- name: Install Powerline fonts
+  shell: ./install.sh && cd .. && rm -rf "~/fonts"
+  args:
+    chdir: ~/fonts

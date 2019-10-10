@@ -49,6 +49,7 @@ homebrew_installed_packages:
   - kubectx
   - kubernetes-cli
   - kubernetes-helm
+  - kustomize
   - libevent
   - mcrypt
   - nmap

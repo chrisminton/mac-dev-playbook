@@ -59,6 +59,7 @@ homebrew_installed_packages:
   - openssl
   - packer
   - pinentry-mac # for GPG signing git commits
+  - pre-commit
   - python3
   - readline
   - reattach-to-user-namespace
@@ -69,6 +70,7 @@ homebrew_installed_packages:
   - stern
   - terraform
   - terraform_landscape
+  - terraform-docs
   - tflint
   - tmux
   - wget

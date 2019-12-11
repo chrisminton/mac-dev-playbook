@@ -42,13 +42,13 @@ homebrew_installed_packages:
   - gnu-tar
   - go
   - gpg
+  - helm
   - hub
   - httpie
   - iperf
   - jq
   - kubectx
   - kubernetes-cli
-  - kubernetes-helm
   - kustomize
   - libevent
   - mcrypt

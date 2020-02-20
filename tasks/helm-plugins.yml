@@ -1,0 +1,9 @@
+---
+- name: list helm plugins
+  command: "{{ helm_util }} plugin list"
+  register: helm_plugin_list
+
+- name: Install Helm Plugins
+  command: "{{ helm_util }} plugin install {{ item.path }}"
+  with_items: "{{ helm_plugins }}"
+  when: item.name not in helm_plugin_list.stdout|lower

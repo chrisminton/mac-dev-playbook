@@ -30,7 +30,7 @@ homebrew_installed_packages:
   - bash
   - bash-completion
   - bosh-cli # cloud foundry cli tools
-  - cf-cli   # cloud foundry cli tools
+  - cf-cli # cloud foundry cli tools
   - coreutils
   - cowsay
   - derailed/k9s/k9s
@@ -69,10 +69,10 @@ homebrew_installed_packages:
   - ssh-copy-id
   - stern
   - terraform
-  - terraform_landscape
   - terraform-docs
   - tflint
   - tmux
+  - watch
   - wget
   - wireshark
   - vault
@@ -115,15 +115,18 @@ osx_script: "~/.osx --no-restart"
 # Install packages from other package managers.
 # Note: You are responsible for making sure the required package managers are
 # installed, eg. through homebrew.
-composer_packages: []
+composer_packages:
+  []
   # - name: drush
   #   state: present # present/absent, default: present
   #   version: "^8.1" # default: N/A
-gem_packages: []
+gem_packages:
+  []
   # - name: bundler
   #   state: present # present/absent/latest, default: present
   #   version: "~> 1.15.1" # default: N/A
-npm_packages: []
+npm_packages:
+  []
   # - name: webpack
   #   state: present # present/absent/latest, default: present
   #   version: "^2.6" # default: N/A
@@ -141,11 +144,19 @@ pip_packages:
     executable: /usr/local/bin/pip3
   - name: pylint
     executable: /usr/local/bin/pip3
-  - name: virtualenv 
+  - name: virtualenv
     executable: /usr/local/bin/pip3
 
 # Chef
-chefdk_version: 3.11.3
+chefdk_version: 4.7.113
+
+# Helm plugins
+helm_util: /usr/local/bin/helm
+helm_plugins:
+  - name: s3
+    path: https://github.com/hypnoglow/helm-s3
+  - name: release
+    path: https://github.com/sstarcher/helm-release
 
 # vim setup
 vim_plugin_dir: ~/.vim/autoload

@@ -6,4 +6,9 @@ output=json
 region=eu-west-1
 role_arn=
 source_profile=default
-
+azure_tenant_id=
+azure_app_id_uri=https://signin.aws.amazon.com/saml\#<example-account-id>
+azure_default_username=SAML login
+azure_default_role_arn=arn:aws:iam::<example-account-id>:<role to assume>
+azure_default_duration_hours=12
+azure_default_remember_me=true

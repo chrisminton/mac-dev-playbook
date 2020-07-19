@@ -29,8 +29,6 @@ homebrew_installed_packages:
   - aws-shell
   - bash
   - bash-completion
-  - bosh-cli # cloud foundry cli tools
-  - cf-cli # cloud foundry cli tools
   - coreutils
   - cowsay
   - derailed/k9s/k9s
@@ -81,9 +79,7 @@ homebrew_installed_packages:
 
 homebrew_taps:
   - homebrew/core
-  - cloudfoundry/tap
   - git-duet/tap
-  - starkandwayne/cf
   - wagoodman/dive
   - wata727/tflint
 
@@ -168,9 +164,11 @@ vscode_extensions:
   - chef-software.chef
   - davidanson.vscode-markdownlint
   - eriklynd.json-tools
+  - golang.go
   - jmmeessen.jenkins-declarative-support
+  - hashicorp.terraform
+  - karigari.chat
   - lostintangent.vsls-pomodoro
-  - mauve.terraform
   - ms-azuretools.vscode-docker
   - ms-kubernetes-tools.vscode-kubernetes-tools
   - ms-python.python

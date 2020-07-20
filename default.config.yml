@@ -94,8 +94,8 @@ homebrew_cask_apps:
   - keybase
   - macpass # KeyPass Mac port
   - microsoft-teams
+  - rectangle
   - slack
-  - spectacle
   - vagrant
   - { name: virtualbox, install_options: no-quarantine }
   - visual-studio-code

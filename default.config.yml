@@ -43,15 +43,19 @@ homebrew_installed_packages:
   - go
   - gpg
   - helm
+  - helm-docs
   - hub
   - httpie
   - iperf
   - jq
+  - kind
   - kubectx
   - kubernetes-cli
+  - kubeval
   - kustomize
   - libevent
   - mcrypt
+  - minikube
   - nmap
   - node
   - nvm

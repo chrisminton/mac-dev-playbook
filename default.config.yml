@@ -18,7 +18,9 @@ dotfiles_repo_local_destination: ~/personal/dotfiles
 dotfiles_files:
   - .gitignore
   - .config/powerline
+  - .k9s/plugin.yml
   - .osx
+  - .ssh/config
   - .tmux.conf
   - .vimrc
   - .zshrc
@@ -68,6 +70,8 @@ homebrew_installed_packages:
   - stern
   - terraform
   - terraform-docs
+  - terragrunt
+  - tfenv
   - tflint
   - tmux
   - watch
@@ -75,6 +79,7 @@ homebrew_installed_packages:
   - wireshark
   - vault
   - vim
+  - yamllint
   - yq
 
 homebrew_taps:

@@ -101,6 +101,7 @@ homebrew_cask_apps:
   - handbrake
   - iterm2
   - keybase
+  - kitty
   - macpass # KeyPass Mac port
   - microsoft-teams
   - rectangle

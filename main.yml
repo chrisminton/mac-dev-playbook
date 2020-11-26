@@ -57,6 +57,10 @@
       when: configure_aws
       tags: ['aws']
 
+    - include: tasks/helm-plugins.yml
+      when: configure_helm
+      tags: ['helm']
+
     - include: tasks/extra-packages.yml
       tags: ['extra-packages']
 

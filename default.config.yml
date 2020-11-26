@@ -5,7 +5,8 @@ mount_path: /Volumes
 # set to yes to run certain tasks
 configure_aws: yes
 configure_chef: yes
-configure_dotfiles: no
+configure_dotfiles: yes
+configure_helm: yes
 configure_sudoers: no
 configure_terminal: yes
 configure_osx: yes
@@ -36,6 +37,8 @@ homebrew_installed_packages:
   - derailed/k9s/k9s
   - direnv
   - dive
+  - fluxctl
+  - fzf
   - git
   - git-crypt
   - git-duet
@@ -49,6 +52,7 @@ homebrew_installed_packages:
   - iperf
   - jq
   - kind
+  - krew
   - kubectx
   - kubernetes-cli
   - kubeval
@@ -87,6 +91,7 @@ homebrew_installed_packages:
   - yq
 
 homebrew_taps:
+  - homebrew/cask-fonts
   - homebrew/core
   - git-duet/tap
   - wagoodman/dive
@@ -96,6 +101,9 @@ homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   - docker
   - firefox
+  - font-hack-nerd-font
+  - font-meslo-for-powerline
+  - font-meslo-lg-nerd-font
   - google-chrome
   - gpg-suite
   - handbrake

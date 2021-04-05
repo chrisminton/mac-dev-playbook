@@ -73,6 +73,7 @@ homebrew_installed_packages:
   - reattach-to-user-namespace
   - remind101/formulae/assume-role
   - shellcheck
+  - skopeo
   - sqlite
   - ssh-copy-id
   - stern
@@ -162,7 +163,7 @@ pip_packages:
     executable: /usr/local/bin/pip3
 
 # Chef
-chefdk_version: 4.7.113
+chefdk_version: 4.13.3
 
 # Helm plugins
 helm_util: /usr/local/bin/helm

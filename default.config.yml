@@ -46,7 +46,6 @@ homebrew_installed_packages:
   - go
   - gpg
   - helm
-  - helm-docs
   - hub
   - httpie
   - iperf
@@ -66,7 +65,7 @@ homebrew_installed_packages:
   - om
   - openssl
   - packer
-  - pinentry-mac # for GPG signing git commits
+  - pinentry-mac  # for GPG signing git commits
   - pre-commit
   - python3
   - readline
@@ -77,11 +76,10 @@ homebrew_installed_packages:
   - sqlite
   - ssh-copy-id
   - stern
-  - terraform
   - terraform-docs
-  - terragrunt
   - tfenv
   - tflint
+  - tgenv
   - tmux
   - watch
   - wget
@@ -107,16 +105,13 @@ homebrew_cask_apps:
   - font-meslo-lg-nerd-font
   - google-chrome
   - gpg-suite
-  - handbrake
   - iterm2
   - keybase
   - kitty
-  - macpass # KeyPass Mac port
+  - macpass  # KeyPass Mac port
   - microsoft-teams
   - rectangle
   - slack
-  - vagrant
-  - { name: virtualbox, install_options: no-quarantine }
   - visual-studio-code
   - whatsapp
 
@@ -153,7 +148,7 @@ pip_packages:
     executable: /usr/local/bin/pip3
   - name: boto3
     executable: /usr/local/bin/pip3
-  - name: netifaces # for powerline status internal IP
+  - name: netifaces  # for powerline status internal IP
     executable: /usr/local/bin/pip3
   - name: powerline-status
     executable: /usr/local/bin/pip3
@@ -173,7 +168,7 @@ helm_plugins:
   - name: release
     path: https://github.com/sstarcher/helm-release
 
-# vim setup
+# vim setup
 vim_plugin_dir: ~/.vim/autoload
 
 # vscode setup

@@ -39,6 +39,7 @@ homebrew_installed_packages:
   - dive
   - fluxctl
   - fzf
+  - gh
   - git
   - git-crypt
   - git-duet
@@ -46,7 +47,6 @@ homebrew_installed_packages:
   - go
   - gpg
   - helm
-  - hub
   - httpie
   - iperf
   - jq
@@ -97,6 +97,7 @@ homebrew_taps:
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
+  - alacritty
   - docker
   - firefox
   - font-hack-nerd-font
@@ -106,7 +107,6 @@ homebrew_cask_apps:
   - gpg-suite
   - iterm2
   - keybase
-  - kitty
   - macpass  # KeyPass Mac port
   - microsoft-teams
   - rectangle

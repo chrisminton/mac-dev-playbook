@@ -30,6 +30,7 @@ homebrew_installed_packages:
   - autoconf
   - awscli
   - aws-shell
+  - azure-cli
   - bash
   - bash-completion
   - coreutils
@@ -37,11 +38,10 @@ homebrew_installed_packages:
   - derailed/k9s/k9s
   - direnv
   - dive
-  - fluxctl
+  - fluxcd/tap/flux
   - fzf
   - gh
   - git
-  - git-crypt
   - git-duet
   - gnu-tar
   - go

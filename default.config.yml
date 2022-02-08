@@ -69,7 +69,6 @@ homebrew_installed_packages:
   - python3
   - readline
   - reattach-to-user-namespace
-  - remind101/formulae/assume-role
   - shellcheck
   - skopeo
   - sqlite

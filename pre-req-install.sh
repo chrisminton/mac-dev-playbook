@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if softwareupdate --history | grep --silent "Command Line Tools.*${os}"; then
+if softwareupdate --history | grep --silent "Command Line Tools"; then
     echo 'Command-line tools already installed.'
 else
     printf "Installing Xcode"

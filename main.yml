@@ -12,7 +12,7 @@
       tags: ['always']
 
   roles:
-    - role: geerlingguy.homebrew
+    - role: geerlingguy.mac.homebrew
       tags: ['homebrew']
     - role: geerlingguy.dotfiles
       when: configure_dotfiles

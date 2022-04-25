@@ -1,6 +1,7 @@
 [default]
 region=eu-west-1
 output=json
+tcp_keepalive=true
 
 [profile example]
 region=eu-west-1

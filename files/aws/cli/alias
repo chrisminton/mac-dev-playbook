@@ -1,11 +1,19 @@
 [toplevel]
-
 find =
   !f() {
-    aws ec2 describe-instances --profile "${1}" \
-    --filter "Name=tag:Name,Values=*"${2}"*" \
-    --query 'Reservations[].Instances[].[[Tags[?Key==`environment`].Value][0][0], PrivateIpAddress, InstanceId, State.Name, Placement.AvailabilityZone, [Tags[?Key==`project`].Value][0][0], [Tags[?Key==`run_list`].Value][0][0]]' \
-    --output text;
+    tag_output=$(AWS_PAGER="" aws ec2 describe-instances \
+    --filter "Name=tag:Name,Values=*"${1}"*" \
+    --query 'Reservations[].Instances[].[[Tags[?Key==`environment`].Value][0][0], PrivateIpAddress, InstanceId, State.Name, Placement.AvailabilityZone, [Tags[?Key==`project`].Value][0][0], [Tags[?Key==`run_list`].Value][0][0], [Tags[?Key==`Name`].Value][0][0]] | sort_by(@, &[4])' \
+    --output text;)
+    tag_runlist_output=$(AWS_PAGER="" aws ec2 describe-instances \
+    --filter "Name=tag:run_list,Values=*"${1}"*" \
+    --query 'Reservations[].Instances[].[[Tags[?Key==`environment`].Value][0][0], PrivateIpAddress, InstanceId, State.Name, Placement.AvailabilityZone, [Tags[?Key==`project`].Value][0][0], [Tags[?Key==`run_list`].Value][0][0], [Tags[?Key==`Name`].Value][0][0]] | sort_by(@, &[4])' \
+    --output text;)
+    id_output=$(AWS_PAGER="" aws ec2 describe-instances \
+    --filter "Name=instance-id,Values=*"${1}"*" \
+    --query 'Reservations[].Instances[].[[Tags[?Key==`environment`].Value][0][0], PrivateIpAddress, InstanceId, State.Name, Placement.AvailabilityZone, [Tags[?Key==`project`].Value][0][0], [Tags[?Key==`run_list`].Value][0][0], [Tags[?Key==`Name`].Value][0][0]] | sort_by(@, &[4])' \
+    --output text;)
+    echo "${tag_output}\n${tag_runlist_output}\n${id_output}\n" | sort -u -k 3 | sort -k 5
   }; f
 
 findzone =
@@ -52,4 +60,18 @@ sshall =
     echo "Connecting to ${ips//[[:space:]]/,}"
     osascript -e "say \"connecting to ${1}\""
     ~/.aws/cli/awssshall.scpt $ips
+  }; f
+
+# execute command via SSH on all servers filtered
+ssh-cmd =
+  !f() {
+    local name=$1
+    local cmd=${@:2}
+    ips=($(AWS_PAGER="" aws ec2 describe-instances --filter "Name=tag:Name,Values=*"${name}"*" "Name=instance-state-name,Values=running" \
+    --query 'Reservations[].Instances[].PrivateIpAddress' --output text))
+    echo "ips=$ips"
+    for ip in ${ips[@]}; do
+      echo "ssh $ip $cmd"
+      ssh -o StrictHostKeyChecking=off -o ConnectTimeout=1 -o ConnectionAttempts=1 "${ip}" "${cmd}"
+    done
   }; f

@@ -1,0 +1,24 @@
+---
+- name: Test krew installation
+  command: kubectl krew
+  register: krew_installed
+
+- name: Install krew
+  command: |
+    set -x; cd "$(mktemp -d)" &&
+    OS="$(uname | tr '[:upper:]' '[:lower:]')" &&
+    ARCH="$(uname -m | sed -e 's/x86_64/amd64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64$/arm64/')" &&
+    KREW="krew-${OS}_${ARCH}" &&
+    curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/${KREW}.tar.gz" &&
+    tar zxvf "${KREW}.tar.gz" &&
+    ./"${KREW}" install krew
+  when: krew_installed != 0
+
+- name: list krew plugins
+  command: "{{ kubectl_util }} krew list"
+  register: krew_plugin_list
+
+- name: Install Krew Plugins
+  command: "{{ kubectl_util }} install {{ item.path }}"
+  with_items: "{{ krew_plugins }}"
+  when: item.name not in krew_plugin_list.stdout|lower

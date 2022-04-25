@@ -61,6 +61,10 @@
       when: configure_helm
       tags: ['helm']
 
+    - include: tasks/krew-plugins.yml
+      when: configure_krew
+      tags: ['krew']
+
     - include: tasks/extra-packages.yml
       tags: ['extra-packages']
 

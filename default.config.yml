@@ -104,7 +104,6 @@ homebrew_cask_apps:
   - font-meslo-lg-nerd-font
   - google-chrome
   - gpg-suite
-  - iterm2
   - keybase
   - macpass  # KeyPass Mac port
   - microsoft-teams
@@ -165,6 +164,14 @@ helm_plugins:
     path: https://github.com/hypnoglow/helm-s3
   - name: release
     path: https://github.com/sstarcher/helm-release
+
+# K8s
+kubectl_util: /usr/local/bin/kubectl
+krew_plugins:
+  - cert-manager
+  - neat
+  - rbac-lookup
+  - rolesum
 
 # vim setup
 vim_plugin_dir: ~/.vim/autoload

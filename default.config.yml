@@ -17,6 +17,8 @@ dotfiles_repo: "git@github.com:chrisminton/dotfiles.git"
 dotfiles_repo_accept_hostkey: yes
 dotfiles_repo_local_destination: ~/personal/dotfiles
 dotfiles_files:
+  - .aws/cli/alias
+  - .aws/config
   - .gitignore
   - .config/powerline
   - .k9s/plugin.yml

@@ -20,10 +20,11 @@ dotfiles_repo_local_destination: ~/personal/dotfiles
 dotfiles_files:
   - .aws/cli/alias
   - .aws/config
-  - .gitignore
   - .config/powerline
+  - .gitignore
   - .k9s/plugin.yml
   - .osx
+  - .p10k.zsh
   - .ssh/config
   - .tmux.conf
   - .vimrc

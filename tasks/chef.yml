@@ -1,56 +1,57 @@
 ---
 - name: Check if Chef is installed
-  shell: /opt/chefdk/bin/chef --version
+  ansible.builtin.shell: /opt/chefdk/bin/chef --version || /bin/true
   args:
     executable: /bin/bash
-  ignore_errors: yes  
+  ignore_errors: True
   register: chef_check
 
 - name: Download ChefDK
-  get_url: 
-    url="https://packages.chef.io/files/stable/chefdk/{{chefdk_version}}/mac_os_x/{{ansible_distribution_major_version}}.{{ ansible_distribution_version.split('.')[1] }}/chefdk-{{chefdk_version}}-1.dmg"
-    dest="{{downloads}}/chefdk-{{chefdk_version}}.dmg"
+  ansible.builtin.get_url:
+    url: "https://packages.chef.io/files/stable/chefdk/{{chefdk_version}}/mac_os_x/{{ansible_distribution_major_version}}.{{ ansible_distribution_version.split('.')[1] }}/chefdk-{{chefdk_version}}-1.dmg"
+    dest: "{{downloads}}/chefdk-{{chefdk_version}}.dmg"
   when: chef_check.stdout == '' or chefdk_version not in chef_check.stdout_lines[0]
-  ignore_errors: yes
+  ignore_errors: True
   register: get_chefdk
 
 # some older ChefDK versions are not available in latest MacOS
 - name: Retry Download with older OS version ({{ansible_distribution_major_version}}.{{ ansible_distribution_version.split('.')[1]|int -1 }})
-  get_url: 
-    url="https://packages.chef.io/files/stable/chefdk/{{chefdk_version}}/mac_os_x/{{ansible_distribution_major_version}}.{{ ansible_distribution_version.split('.')[1]|int -1 }}/chefdk-{{chefdk_version}}-1.dmg"
-    dest="{{downloads}}/chefdk-{{chefdk_version}}.dmg"
+  ansible.builtin.get_url:
+    url: "https://packages.chef.io/files/stable/chefdk/{{chefdk_version}}/mac_os_x/{{ansible_distribution_major_version}}.{{ ansible_distribution_version.split('.')[1]|int -1 }}/chefdk-{{chefdk_version}}-1.dmg"
+    dest: "{{downloads}}/chefdk-{{chefdk_version}}.dmg"
   when: get_chefdk is failed
   register: get_chefdk_older
 
 - name: Mount ChefDK image
-  shell: hdiutil attach "./chefdk-{{chefdk_version}}.dmg" -mountpoint "{{mount_path}}/chefdk-{{chefdk_version}}"
+  ansible.builtin.shell: hdiutil attach "./chefdk-{{chefdk_version}}.dmg" -mountpoint "{{mount_path}}/chefdk-{{chefdk_version}}"
   args:
     chdir: "{{downloads}}"
   when: get_chefdk is changed or get_chefdk_older is changed
 
 - name: Install ChefDK
-  shell: installer -pkg "{{mount_path}}/chefdk-{{chefdk_version}}/"*.pkg -target /
+  ansible.builtin.shell: installer -pkg "{{mount_path}}/chefdk-{{chefdk_version}}/"*.pkg -target /
   become: yes
   when: get_chefdk is changed or get_chefdk_older is changed
 
 # get the devices rather than the mountpoint to avoid Resource busy errors
 - name: find attached disk images
-  shell: hdiutil info | grep /dev/disk | grep partition | cut -f 1
+  ansible.builtin.shell: hdiutil info | grep /dev/disk | grep partition | cut -f 1
   register: chefdk_disk_attach
   when: get_chefdk is changed or get_chefdk_older is changed
 
 - name: Remove ChefDK volume mounts
-  shell: hdiutil detach -force {{item}}
+  ansible.builtin.shell: hdiutil detach -force {{item}}
   with_items: "{{chefdk_disk_attach.stdout_lines}}"
   when: get_chefdk is changed or get_chefdk_older is changed
 
 - name: Remove ChefDK volume mounts
-  file:
-    path: " {{downloads}}chefdk-{{chefdk_version}}.dmg"
+  ansible.builtin.file:
+    path: "{{downloads}}chefdk-{{chefdk_version}}.dmg"
     state: absent
   when: get_chefdk is changed or get_chefdk_older is changed
 
 # https://github.com/chef/chef-dk/issues/1549
 - name: check rubygems-update version
-  shell: chef gem list | grep rubygems-update
+  ansible.builtin.shell: "chef gem list | grep rubygems-update"
+  ignore_errors: True
   register: rubygems_update

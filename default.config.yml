@@ -7,6 +7,7 @@ configure_aws: yes
 configure_chef: yes
 configure_dotfiles: yes
 configure_helm: yes
+configure_krew: yes
 configure_sudoers: no
 configure_terminal: yes
 configure_osx: yes
@@ -111,6 +112,7 @@ homebrew_cask_apps:
   - microsoft-teams
   - rectangle
   - slack
+  - tuple
   - visual-studio-code
   - whatsapp
 
@@ -135,10 +137,11 @@ gem_packages:
   #   state: present # present/absent/latest, default: present
   #   version: "~> 1.15.1" # default: N/A
 npm_packages:
-  []
   # - name: webpack
   #   state: present # present/absent/latest, default: present
   #   version: "^2.6" # default: N/A
+  - name: aws-azure-login
+    state: present
 pip_packages:
   # - name: mkdocs
   #   state: present # present/absent/latest, default: present
@@ -158,6 +161,11 @@ pip_packages:
 
 # Chef
 chefdk_version: 4.13.3
+
+# AWS files to copy
+aws_configs:
+  - credentials
+  - cli/ssh_all.scpt
 
 # Helm plugins
 helm_util: /usr/local/bin/helm
@@ -197,6 +205,11 @@ vscode_extensions:
   - rebornix.ruby
   - redhat.vscode-yaml
   - timonwong.shellcheck
+
+zsh_user_plugins:
+  - zsh-autosuggestions
+  - zsh-completions
+  - zsh-syntax-highlighting
 
 # Glob pattern to ansible task files to run after all other tasks are finished.
 post_provision_tasks: []

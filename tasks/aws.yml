@@ -1,7 +1,7 @@
 ---
 # Create example AWS config files unless they already exist
 - name: Create AWS CLI directories
-  file:
+  ansible.builtin.file:
     path: ~/.aws/cli
     state: directory
 
@@ -11,8 +11,4 @@
     dest: "~/.aws/{{ item }}"
     mode: 0775
     force: no
-  with_items:
-    - config
-    - credentials
-    - cli/alias
-    - cli/ssh_all.scpt
+  loop: "{{ aws_configs }}"

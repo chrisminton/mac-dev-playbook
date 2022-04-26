@@ -5,31 +5,49 @@
   register: omz_bound
 
 - name: Download oh-my-zsh
-  git: repo=git@github.com:robbyrussell/oh-my-zsh.git
-       dest=~/.oh-my-zsh accept_hostkey=true
+  ansible.builtin.git:
+    repo: git@github.com:robbyrussell/oh-my-zsh.git
+    dest: ~/.oh-my-zsh
+    accept_hostkey: yes
   when: omz_bound is failed
 
+- name: Check zsh plugins
+  ansible.builtin.stat:
+    path: "~/.oh-my-zsh/custom/plugins/{{ item }}"
+  register: zsh_stat
+  loop: "{{ zsh_user_plugins }}"
+  ignore_errors: True
+
 - name: Install zsh-users plugins
-  git: repo=git@github.com:zsh-users/{{ item }}.git
-       dest=~/.oh-my-zsh/custom/plugins/{{ item }}
-       accept_hostkey=true
-  when: omz_bound is failed
-  with_items:
-    - zsh-completions
-    - zsh-syntax-highlighting
+  ansible.builtin.git:
+    repo: "git@github.com:zsh-users/{{ item.item }}.git"
+    dest: "~/.oh-my-zsh/custom/plugins/{{ item.item }}"
+    accept_hostkey: yes
+  when: item.stat.exists == False
+  loop: "{{ zsh_stat.results }}"
 
 - name: change shell
   command: chsh -s /bin/zsh
   when: omz_bound is failed
 
+- name: Test for fonts directory
+  ansible.builtin.shell: "ls ~/Library/Fonts | grep -i powerline"
+  ignore_errors: True
+  register: fonts_dir
+
 - name: Download Powerline fonts
-  git: repo=git@github.com:powerline/fonts.git
-       dest=~/fonts
-       accept_hostkey=true
-       depth=1
-  when: omz_bound is failed
+  ansible.builtin.git:
+    repo: git@github.com:powerline/fonts.git
+    dest: ~/fonts
+    accept_hostkey: true
+    depth: 1
+  when: fonts_dir is failed
 
 - name: Install Powerline fonts
-  shell: ./install.sh && cd .. && rm -rf "~/fonts"
+  ansible.builtin.shell: ./install.sh && cd .. && rm -rf "~/fonts"
   args:
     chdir: ~/fonts
+  when: fonts_dir is failed
+
+- name: Install PowerLevel10k
+  ansible.builtin.shell: brew install romkatv/powerlevel10k/powerlevel10k

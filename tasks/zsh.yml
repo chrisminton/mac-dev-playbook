@@ -50,4 +50,7 @@
   when: fonts_dir is failed
 
 - name: Install PowerLevel10k
-  ansible.builtin.shell: brew install romkatv/powerlevel10k/powerlevel10k
+  ansible.builtin.git:
+    repo: https://github.com/romkatv/powerlevel10k.git
+    dest: "${HOME}/.oh-my-zsh/custom/themes/powerlevel10k"
+    accept_hostkey: true

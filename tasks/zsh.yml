@@ -54,3 +54,7 @@
     repo: https://github.com/romkatv/powerlevel10k.git
     dest: "${HOME}/.oh-my-zsh/custom/themes/powerlevel10k"
     accept_hostkey: true
+
+- name: Disable Homebrew Analytics
+  ansible.builtin.shell: "brew analytics off"
+  ignore_errors: True

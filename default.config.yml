@@ -75,6 +75,7 @@ homebrew_installed_packages:
   - reattach-to-user-namespace
   - shellcheck
   - skopeo
+  - sops
   - sqlite
   - ssh-copy-id
   - stern

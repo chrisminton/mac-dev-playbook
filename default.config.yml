@@ -66,6 +66,7 @@ homebrew_installed_packages:
   - nmap
   - node
   - nvm
+  - nvim
   - openssl
   - packer
   - pinentry-mac  # for GPG signing git commits

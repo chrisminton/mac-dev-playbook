@@ -18,7 +18,9 @@
         - ~/.aws/cli
         - ~/.config/powerline
         - ~/.config/alacritty
+        - ~/.config/k9s
         - ~/.config/kitty
+        - ~/.config/nvim
       when: configure_dotfiles
 
   # roles:

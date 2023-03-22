@@ -13,5 +13,5 @@
 - name: Symlink /opt/homebrew/etc/ansible to /etc/ansible.
   file:
     src: /etc/ansible
-    path: /opt/homebrew/etc/ansible
+    path: "{{ hoomebrew_prefix }}/etc/ansible"
     state: link

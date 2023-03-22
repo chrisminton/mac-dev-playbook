@@ -8,10 +8,10 @@ This is a work in progress, and is mostly a means for me to document my current 
 
 *See also*:
 
-  - [Boxen](https://github.com/boxen)
-  - [Battleschool](http://spencer.gibb.us/blog/2014/02/03/introducing-battleschool)
-  - [osxc](https://github.com/osxc)
-  - [MWGriffin/ansible-playbooks](https://github.com/MWGriffin/ansible-playbooks) (the original inspiration for this project)
+- [Boxen](https://github.com/boxen)
+- [Battleschool](http://spencer.gibb.us/blog/2014/02/03/introducing-battleschool)
+- [osxc](https://github.com/osxc)
+- [MWGriffin/ansible-playbooks](https://github.com/MWGriffin/ansible-playbooks) (the original inspiration for this project)
 
 ## Installation
 
@@ -64,33 +64,34 @@ Any variable can be overridden in `config.yml`; see the supporting roles' docume
 
 Applications (installed with Homebrew Cask):
 
-  - [Dropbox](https://www.dropbox.com/)
-  - [Firefox](https://www.mozilla.org/en-US/firefox/new/)
-  - [Google Chrome](https://www.google.com/chrome/)
-  - [Handbrake](https://handbrake.fr/)
-  - [Slack](https://slack.com/)
-  - [Vagrant](https://www.vagrantup.com/)
-  - [VirtualBox](https://www.virtualbox.org/wiki/Downloads) - this may fail initially and require allowing in `System Preferences > Security & Privacy > General`
+- [Dropbox](https://www.dropbox.com/)
+- [Firefox](https://www.mozilla.org/en-US/firefox/new/)
+- [Google Chrome](https://www.google.com/chrome/)
+- [Handbrake](https://handbrake.fr/)
+- [Slack](https://slack.com/)
+- [Vagrant](https://www.vagrantup.com/)
+- [VirtualBox](https://www.virtualbox.org/wiki/Downloads) - this may fail initially and require allowing in `System Preferences > Security & Privacy > General`
 
 Packages (installed with Homebrew):
-  - autoconf
-  - bash-completion
-  - cowsay
-  - git
-  - go
-  - gpg
-  - hub
-  - httpie
-  - iperf
-  - libevent
-  - mcrypt
-  - nmap
-  - node
-  - nvm
-  - openssl
-  - readline
-  - ssh-copy-id
-  - wget
+
+- autoconf
+- bash-completion
+- cowsay
+- git
+- go
+- gpg
+- hub
+- httpie
+- iperf
+- libevent
+- mcrypt
+- nmap
+- node
+- nvm
+- openssl
+- readline
+- ssh-copy-id
+- wget
 
 [dotfiles](https://github.com/geerlingguy/dotfiles) are also installed into the current user's home directory, including the `.osx` dotfile for configuring many aspects of macOS for better performance and ease of use. You can disable dotfiles management by setting `configure_dotfiles: no` in your configuration.
 

@@ -1,6 +1,7 @@
 ---
 downloads: ~/.ansible-downloads/
 mount_path: /Volumes
+homebrew_prefix: "{{ (ansible_machine == 'arm64') | ternary('/opt/homebrew', '/usr/local') }}"
 
 # set to yes to run certain tasks
 configure_aws: yes
@@ -20,9 +21,12 @@ dotfiles_repo_local_destination: ~/personal/dotfiles
 dotfiles_files:
   - .aws/cli/alias
   - .aws/config
+  - .config/alacritty
+  - .config/k9s
+  - .config/kitty
+  - .config/nvim
   - .config/powerline
   - .gitignore
-  - .k9s/plugin.yml
   - .osx
   - .p10k.zsh
   - .ssh/config
@@ -73,7 +77,7 @@ homebrew_installed_packages:
   - openssl
   - packer
   - pinentry-mac  # for GPG signing git commits
-  - powerlevel10k
+  - romkatv/powerlevel10k/powerlevel10k
   - pre-commit
   - python3
   - readline
@@ -156,17 +160,17 @@ pip_packages:
   #   state: present # present/absent/latest, default: present
   #   version: "0.16.3" # default: N/A
   - name: aws-shell
-    executable: /usr/local/bin/pip3
+    executable: "{{ homebrew_prefix }}/bin/pip3"
   - name: boto3
-    executable: /usr/local/bin/pip3
+    executable: "{{ homebrew_prefix }}/bin/pip3"
   - name: netifaces  # for powerline status internal IP
-    executable: /usr/local/bin/pip3
+    executable: "{{ homebrew_prefix }}/bin/pip3"
   - name: powerline-status
-    executable: /usr/local/bin/pip3
+    executable: "{{ homebrew_prefix }}/bin/pip3"
   - name: pylint
-    executable: /usr/local/bin/pip3
+    executable: "{{ homebrew_prefix }}/bin/pip3"
   - name: virtualenv
-    executable: /usr/local/bin/pip3
+    executable: "{{ homebrew_prefix }}/bin/pip3"
 
 # Chef
 chefdk_version: 4.13.3
@@ -177,7 +181,7 @@ aws_configs:
   - cli/ssh_all.scpt
 
 # Helm plugins
-helm_util: /usr/local/bin/helm
+helm_util: "{{ homebrew_prefix }}/bin/helm"
 helm_plugins:
   - name: s3
     path: https://github.com/hypnoglow/helm-s3
@@ -185,7 +189,7 @@ helm_plugins:
     path: https://github.com/sstarcher/helm-release
 
 # K8s
-kubectl_util: /usr/local/bin/kubectl
+kubectl_util: "{{ homebrew_prefix }}/bin/kubectl"
 krew_plugins:
   - cert-manager
   - neat
@@ -196,7 +200,7 @@ krew_plugins:
 vim_plugin_dir: ~/.vim/autoload
 
 # vscode setup
-vscode_util: /usr/local/bin/code
+vscode_util: "{{ homebrew_prefix }}/bin/code"
 vscode_extensions:
   - bibhasdn.unique-lines
   - chef-software.chef

@@ -92,7 +92,6 @@ homebrew_installed_packages:
   - terraform-ls
   - tfenv
   - tflint
-  - tgenv
   - tmux
   - watch
   - wget

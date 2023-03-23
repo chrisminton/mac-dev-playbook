@@ -21,6 +21,7 @@
         - ~/.config/k9s
         - ~/.config/kitty
         - ~/.config/nvim
+        - ~/.gnupg
       when: configure_dotfiles
 
   roles:

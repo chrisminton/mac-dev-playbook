@@ -27,6 +27,7 @@ dotfiles_files:
   - .config/nvim
   - .config/powerline
   - .gitignore
+  - .gnupg/gpg-agent.conf
   - .osx
   - .p10k.zsh
   - .ssh/config

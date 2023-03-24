@@ -39,6 +39,7 @@ homebrew_installed_packages:
   - autoconf
   - awscli
   - aws-shell
+  - Azure/kubelogin/kubelogin
   - azure-cli
   - bash
   - bash-completion

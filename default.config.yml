@@ -106,7 +106,6 @@ homebrew_installed_packages:
 
 homebrew_taps:
   - homebrew/cask-fonts
-  - homebrew/core
   - git-duet/tap
   - wagoodman/dive
   - wata727/tflint

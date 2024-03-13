@@ -203,10 +203,13 @@ vim_plugin_dir: ~/.vim/autoload
 vscode_util: "{{ homebrew_prefix }}/bin/code"
 vscode_extensions:
   - bibhasdn.unique-lines
+  - charliermarsh.ruff
   - chef-software.chef
   - davidanson.vscode-markdownlint
+  - eamodio.gitlens
   - eriklynd.json-tools
   - golang.go
+  - grafana.vscode-jsonnet
   - jmmeessen.jenkins-declarative-support
   - johnpapa.vscode-peacock
   - hashicorp.terraform

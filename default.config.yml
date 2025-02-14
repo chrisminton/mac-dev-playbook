@@ -49,6 +49,7 @@ homebrew_installed_packages:
   - direnv
   - dive
   - docutils
+  - eks-node-viewer
   - fluxcd/tap/flux
   - fzf
   - gh

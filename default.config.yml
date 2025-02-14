@@ -95,6 +95,7 @@ homebrew_installed_packages:
   - tfenv
   - tflint
   - tmux
+  - uv
   - watch
   - wget
   - wireshark

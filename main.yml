@@ -18,6 +18,7 @@
         - ~/.aws/cli
         - ~/.config/powerline
         - ~/.config/alacritty
+        - ~/.config/ghostty
         - ~/.config/k9s
         - ~/.config/kitty
         - ~/.config/nvim

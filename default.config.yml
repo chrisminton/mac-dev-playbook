@@ -120,11 +120,9 @@ homebrew_cask_apps:
   - font-meslo-for-powerline
   - font-meslo-lg-nerd-font
   - ghostty
-#  - google-chrome
   - gpg-suite
   - keybase
 #  - keypassxc # KeyPass Mac port
-#  - microsoft-teams
   - rectangle
   - slack
   - tuple

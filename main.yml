@@ -19,6 +19,7 @@
         - ~/.config/powerline
         - ~/.config/alacritty
         - ~/.config/ghostty
+        - ~/.config/git
         - ~/.config/k9s
         - ~/.config/kitty
         - ~/.config/nvim

@@ -26,8 +26,9 @@ dotfiles_files:
   - .config/kitty
   - .config/nvim
   - .config/powerline
+  - .config/starship.toml
   - .gitignore
-  - .gnupg/gpg-agent.conf
+  - .gnupg/gpg-agent.cof
   - .osx
   - .p10k.zsh
   - .ssh/config
@@ -90,6 +91,7 @@ homebrew_installed_packages:
   - sops
   - sqlite
   - ssh-copy-id
+  - starship
   - stern
   - terraform-docs
   - terraform-ls
@@ -114,7 +116,6 @@ homebrew_taps:
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
-  - alacritty
   - docker
   - firefox
   - font-hack-nerd-font
@@ -128,6 +129,7 @@ homebrew_cask_apps:
   - slack
   - tuple
   - visual-studio-code
+  - zed
 #  - whatsapp
 
 # See `geerlingguy.mas` role documentation for usage instructions.

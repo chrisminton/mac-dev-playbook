@@ -22,13 +22,15 @@ dotfiles_files:
   - .aws/cli/alias
   - .aws/config
   - .config/alacritty
+  - .config/ghostty
+  - .config/git
   - .config/k9s
   - .config/kitty
   - .config/nvim
   - .config/powerline
   - .config/starship.toml
   - .gitignore
-  - .gnupg/gpg-agent.cof
+  - .gnupg/gpg-agent.conf
   - .osx
   - .p10k.zsh
   - .ssh/config
@@ -62,6 +64,7 @@ homebrew_installed_packages:
   - grep
   - harfbuzz
   - helm
+  - helm-docs
   - httpie
   - iperf
   - jq
@@ -80,12 +83,16 @@ homebrew_installed_packages:
   - nvim
   - openssl
   - packer
+  - parallel
   - pinentry-mac  # for GPG signing git commits
+  - poetry
+  - rbenv
   - romkatv/powerlevel10k/powerlevel10k
   - pre-commit
   - python3
   - readline
   - reattach-to-user-namespace
+  - rsync
   - shellcheck
   - skopeo
   - sops
@@ -93,11 +100,13 @@ homebrew_installed_packages:
   - ssh-copy-id
   - starship
   - stern
+  - tanka
   - terraform-docs
   - terraform-ls
   - tfenv
   - tflint
   - tmux
+  - tree
   - uv
   - watch
   - wget
@@ -105,6 +114,7 @@ homebrew_installed_packages:
   - vault
   - vim
   - virtualenv
+  - xz
   - yamllint
   - yq
 
@@ -117,13 +127,16 @@ homebrew_taps:
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   - docker
+  - docker-desktop
   - firefox
   - font-hack-nerd-font
   - font-meslo-for-powerline
   - font-meslo-lg-nerd-font
   - ghostty
   - gpg-suite
+  - headlamp
   - keybase
+  - kubecontext
 #  - keypassxc # KeyPass Mac port
   - rectangle
   - slack

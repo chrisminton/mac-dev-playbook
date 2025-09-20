@@ -84,7 +84,7 @@ homebrew_installed_packages:
   - openssl
   - packer
   - parallel
-  - pinentry-mac  # for GPG signing git commits
+  - pinentry-mac # for GPG signing git commits
   - poetry
   - rbenv
   - romkatv/powerlevel10k/powerlevel10k
@@ -119,13 +119,13 @@ homebrew_installed_packages:
   - yq
 
 homebrew_taps:
-  - homebrew/cask-fonts
   - git-duet/tap
   - wagoodman/dive
   - wata727/tflint
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
+  - chef-workstation
   - docker
   - docker-desktop
   - firefox
@@ -137,8 +137,9 @@ homebrew_cask_apps:
   - headlamp
   - keybase
   - kubecontext
-#  - keypassxc # KeyPass Mac port
+  #  - keypassxc # KeyPass Mac port
   - rectangle
+  - signal
   - slack
   - tuple
   - visual-studio-code
@@ -175,18 +176,14 @@ pip_packages:
   # - name: mkdocs
   #   state: present # present/absent/latest, default: present
   #   version: "0.16.3" # default: N/A
-  - name: aws-shell
-    executable: "{{ homebrew_prefix }}/bin/pip3"
-  - name: boto3
-    executable: "{{ homebrew_prefix }}/bin/pip3"
-  - name: netifaces  # for powerline status internal IP
-    executable: "{{ homebrew_prefix }}/bin/pip3"
-  - name: powerline-status
-    executable: "{{ homebrew_prefix }}/bin/pip3"
-  - name: pylint
-    executable: "{{ homebrew_prefix }}/bin/pip3"
-  - name: virtualenv
-    executable: "{{ homebrew_prefix }}/bin/pip3"
+  # - name: aws-shell
+  #   executable: "{{ homebrew_prefix }}/bin/pip3"
+  # - name: boto3
+  #   executable: "{{ homebrew_prefix }}/bin/pip3"
+  # - name: netifaces  # for powerline status internal IP
+  #   executable: "{{ homebrew_prefix }}/bin/pip3"
+  # - name: powerline-status
+  #   executable: "{{ homebrew_prefix }}/bin/pip3"
 
 # Chef
 chefdk_version: 4.13.3

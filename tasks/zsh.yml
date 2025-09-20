@@ -49,11 +49,11 @@
     chdir: ~/fonts
   when: fonts_dir is failed
 
-- name: Install PowerLevel10k
-  ansible.builtin.git:
-    repo: https://github.com/romkatv/powerlevel10k.git
-    dest: "${HOME}/.oh-my-zsh/custom/themes/powerlevel10k"
-    accept_hostkey: true
+# - name: Install PowerLevel10k
+#   ansible.builtin.git:
+#     repo: https://github.com/romkatv/powerlevel10k.git
+#     dest: "${HOME}/.oh-my-zsh/custom/themes/powerlevel10k"
+#     accept_hostkey: true
 
 - name: Disable Homebrew Analytics
   ansible.builtin.shell: "brew analytics off"

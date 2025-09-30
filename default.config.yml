@@ -82,7 +82,7 @@ homebrew_installed_packages:
   - nvm
   - nvim
   - openssl
-  - packer
+  - hashicorp/tap/packer
   - parallel
   - pinentry-mac # for GPG signing git commits
   - poetry
@@ -111,7 +111,7 @@ homebrew_installed_packages:
   - watch
   - wget
   - wireshark
-  - vault
+  - hashicorp/tap/vault
   - vim
   - virtualenv
   - xz
@@ -120,6 +120,7 @@ homebrew_installed_packages:
 
 homebrew_taps:
   - git-duet/tap
+  - hashicorp/tap
   - wagoodman/dive
   - wata727/tflint
 
